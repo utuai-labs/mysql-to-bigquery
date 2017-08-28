@@ -9,7 +9,10 @@ Assuming you have a mysql db
 
 ## Cavaets
 
-Quite a few errors still happening on upload to big query.
+Quite a few errors still happening on upload to big query.  I believe this to
+be due to failure of the dump script generating valid csvs and/or incorrect
+encoding.  The big query side assumes utf-8, and don't think we're exporting as
+this.
 
 
 ## Todo
