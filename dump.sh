@@ -10,7 +10,7 @@ do
     # Replace quotes with "" in accordance with RFC-4180
     # idk what most of others are, find more at bottom
     echo "Exporting $tn"
-    mysql -uroot -p$DB_PASSWORD -h$DB_IP $DB_NAME -B -e "select * from \`$tn\`;" | pv -lq | sed 's/"/""/g;s/\t\t/\tNULL\t/g;s/\t/"\t"/g;s/^/"/;s/$/"/' > tables/$tn.tsv
+    mysql -uroot -p$DB_PASSWORD -h$DB_IP $DB_NAME -B -e "select * from \`$tn\`;" | pv -lq | sed 's/"/""/g;s/\t\t/\tNULL\t/g;s/\t/"\t"/g;s/^/"/;s/$/"/;s/^M//' > tables/$tn.tsv &
     sleep 10
   fi
 done
